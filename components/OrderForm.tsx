@@ -5,10 +5,14 @@ import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { wilayas, mirrorTypes } from "@/lib/data";
 
-// Variables d'environnement
-const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+// ✅ Correction TypeScript : On force le type string dès le départ.
+// Sur Vercel, ces variables seront lues depuis tes "Environment Variables".
+const EMAILJS_SERVICE_ID = (process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ||
+  "") as string;
+const EMAILJS_TEMPLATE_ID = (process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ||
+  "") as string;
+const EMAILJS_PUBLIC_KEY = (process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ||
+  "") as string;
 
 export default function OrderForm() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -24,7 +28,6 @@ export default function OrderForm() {
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
-
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (
@@ -40,7 +43,7 @@ export default function OrderForm() {
     setStatus("loading");
     setErrorMessage("");
 
-    // Validation formulaire
+    // 1. Validation des champs vides
     if (
       !formData.fullName ||
       !formData.phone ||
@@ -53,20 +56,15 @@ export default function OrderForm() {
       return;
     }
 
-    // Validation env
+    // 2. Vérification de sécurité pour les clés EmailJS
     if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
-      console.error("EmailJS config manquante");
+      console.error("Configuration EmailJS manquante");
       setStatus("error");
       setErrorMessage(
         "Erreur de configuration serveur. Contactez-nous via WhatsApp.",
       );
       return;
     }
-
-    // 👉 Ici on force TypeScript à comprendre que ce sont des strings
-    const serviceId: string = EMAILJS_SERVICE_ID;
-    const templateId: string = EMAILJS_TEMPLATE_ID;
-    const publicKey: string = EMAILJS_PUBLIC_KEY;
 
     const templateParams = {
       from_name: formData.fullName,
@@ -77,7 +75,13 @@ export default function OrderForm() {
     };
 
     try {
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      // ✅ Ici, TypeScript ne râlera plus car les variables sont garanties comme string en haut
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY,
+      );
 
       setStatus("success");
       setFormData({
@@ -112,11 +116,9 @@ export default function OrderForm() {
           <span className="text-gold-400 text-xs sm:text-sm font-semibold uppercase tracking-wider">
             Passer commande
           </span>
-
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-2 sm:mt-3 mb-3 sm:mb-4">
             Commandez votre <span className="gold-text-gradient">miroir</span>
           </h2>
-
           <p className="text-charcoal-400 max-w-2xl mx-auto text-sm sm:text-base">
             Remplissez le formulaire ci-dessous et nous vous contacterons pour
             finaliser votre commande.
@@ -234,7 +236,7 @@ export default function OrderForm() {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="w-full gold-gradient text-charcoal-900 font-semibold py-4 rounded-xl disabled:opacity-50"
+              className="w-full gold-gradient text-charcoal-900 font-semibold py-4 rounded-xl disabled:opacity-50 active:scale-[0.98] transition-transform"
             >
               {status === "loading" ? "Envoi..." : "Envoyer"}
             </button>
