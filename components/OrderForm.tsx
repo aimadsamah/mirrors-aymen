@@ -59,10 +59,10 @@ export default function OrderForm() {
 
     try {
       await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
+        EMAILJS_SERVICE_ID || "",
+        EMAILJS_TEMPLATE_ID || "",
         templateParams,
-        EMAILJS_PUBLIC_KEY,
+        EMAILJS_PUBLIC_KEY || "",
       );
       setStatus("success");
       setFormData({
