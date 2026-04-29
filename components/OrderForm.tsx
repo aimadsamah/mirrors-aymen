@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { wilayas, mirrorTypes } from "@/lib/data";
 
-const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string;
-const EMAILJS_TEMPLATE_ID = process.env
-  .NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string;
-const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string;
+// On récupère les clés sans forcer le type ici pour laisser le check se faire dans la fonction
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
 export default function OrderForm() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -37,6 +37,7 @@ export default function OrderForm() {
     setStatus("loading");
     setErrorMessage("");
 
+    // 1. Validation des champs du formulaire
     if (
       !formData.fullName ||
       !formData.phone ||
@@ -46,6 +47,19 @@ export default function OrderForm() {
     ) {
       setStatus("error");
       setErrorMessage("Veuillez remplir tous les champs.");
+      return;
+    }
+
+    // 2. Vérification de sécurité pour TypeScript (et pour le fonctionnement)
+    // En faisant ce check, TS sait que les variables sont des strings valides après ce bloc
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      console.error(
+        "Configuration EmailJS manquante dans les variables d'environnement",
+      );
+      setStatus("error");
+      setErrorMessage(
+        "Erreur de configuration serveur. Veuillez nous contacter via WhatsApp.",
+      );
       return;
     }
 
@@ -59,11 +73,12 @@ export default function OrderForm() {
 
     try {
       await emailjs.send(
-        EMAILJS_SERVICE_ID || "",
-        EMAILJS_TEMPLATE_ID || "",
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
         templateParams,
-        EMAILJS_PUBLIC_KEY || "",
+        EMAILJS_PUBLIC_KEY,
       );
+
       setStatus("success");
       setFormData({
         fullName: "",
@@ -72,7 +87,8 @@ export default function OrderForm() {
         mirrorType: "",
         username: "",
       });
-    } catch {
+    } catch (error) {
+      console.error("EmailJS Error:", error);
       setStatus("error");
       setErrorMessage(
         "Une erreur est survenue. Veuillez réessayer ou nous contacter via WhatsApp.",
@@ -167,7 +183,6 @@ export default function OrderForm() {
                 value={formData.wilaya}
                 onChange={handleChange}
                 className={inputClass}
-                defaultValue=""
               >
                 <option value="" disabled>
                   Sélectionnez votre wilaya
@@ -193,7 +208,6 @@ export default function OrderForm() {
                 value={formData.mirrorType}
                 onChange={handleChange}
                 className={inputClass}
-                defaultValue=""
               >
                 <option value="" disabled>
                   Sélectionnez un type
