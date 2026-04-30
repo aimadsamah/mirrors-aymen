@@ -8,19 +8,19 @@ const galleryItems = [
     id: 1,
     label: "Miroir Instagram",
     description: "Restaurant Alger",
-    image: "/images/gallery/mirror.jpg", // Chemin vers public/images/gallery/...
+    image: "/images/gallery/alger.JPG", // Chemin vers public/images/gallery/...
   },
   {
     id: 2,
     label: "Miroir TikTok",
     description: "Salon de coiffure Oran",
-    image: "/images/gallery/mirror.jpg",
+    image: "/images/gallery/alger.JPG",
   },
   {
     id: 3,
     label: "Miroir Instagram",
     description: "Boutique Sétif",
-    image: "/images/gallery/mirror.jpg",
+    image: "/images/gallery/mirror.JPG",
   },
   {
     id: 4,
@@ -76,17 +76,12 @@ export default function GallerySection() {
               className="group relative overflow-hidden rounded-2xl glass aspect-square bg-charcoal-800"
             >
               {/* Utilisation de Next/Image pour le rendu de la photo */}
-              {/* <Image
+              <Image
                 src={item.image}
                 alt={item.label}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
-              /> */}
-              <img
-                src="/images/gallery/mirror.jpg"
-                alt="test"
-                className="w-full h-64 object-cover"
               />
 
               {/* Overlay Gradient pour la lisibilité du texte */}
