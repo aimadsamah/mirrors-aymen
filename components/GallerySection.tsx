@@ -8,37 +8,37 @@ const galleryItems = [
     id: 1,
     label: "Miroir Instagram",
     description: "Restaurant Alger",
-    image: "/images/gallery/mirror.jpg", // Chemin vers public/images/gallery/...
+    image: "/images/gallery/mirror.JPG", // Chemin vers public/images/gallery/...
   },
   {
     id: 2,
     label: "Miroir TikTok",
     description: "Salon de coiffure Oran",
-    image: "/images/gallery/mirror.jpg",
+    image: "/images/gallery/mirror.JPG",
   },
   {
     id: 3,
     label: "Miroir Instagram",
     description: "Boutique Sétif",
-    image: "/images/gallery/mirror.jpg",
+    image: "/images/gallery/mirror.JPG",
   },
   {
     id: 4,
     label: "Miroir Facebook",
     description: "Café Constantine",
-    image: "/images/gallery/mirror.jpg",
+    image: "/images/gallery/mirror.JPG",
   },
   {
     id: 5,
     label: "Miroir TikTok",
     description: "Fitness Club Blida",
-    image: "/images/gallery/mirror.jpg",
+    image: "/images/gallery/mirror.JPG",
   },
   {
     id: 6,
     label: "Miroir Personnalisé",
     description: "Hôtel Annaba",
-    image: "/images/gallery/mirror.jpg",
+    image: "/images/gallery/mirror.JPG",
   },
 ];
 
