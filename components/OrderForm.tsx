@@ -87,8 +87,11 @@ export default function OrderForm() {
         mirrorType: "",
         username: "",
       });
-    } catch (error) {
+    } catch (error: any) {
       console.error("EmailJS Error:", error);
+      console.error("Status:", error?.status);
+      console.error("Text:", error?.text);
+
       setStatus("error");
       setErrorMessage(
         "Une erreur est survenue. Réessayez ou contactez-nous via WhatsApp.",
