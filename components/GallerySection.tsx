@@ -76,13 +76,17 @@ export default function GallerySection() {
               className="group relative overflow-hidden rounded-2xl glass aspect-square bg-charcoal-800"
             >
               {/* Utilisation de Next/Image pour le rendu de la photo */}
-              <Image
+              {/* <Image
                 src={item.image}
                 alt={item.label}
-                width={500}
-                height={500}
+                fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
+              /> */}
+              <img
+                src="/images/gallery/mirror.jpg"
+                alt="test"
+                className="w-full h-64 object-cover"
               />
 
               {/* Overlay Gradient pour la lisibilité du texte */}
