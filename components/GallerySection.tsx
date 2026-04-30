@@ -79,7 +79,8 @@ export default function GallerySection() {
               <Image
                 src={item.image}
                 alt={item.label}
-                fill
+                width={500}
+                height={500}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
