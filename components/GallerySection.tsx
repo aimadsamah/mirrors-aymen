@@ -8,19 +8,19 @@ const galleryItems = [
     id: 1,
     label: "Miroir Instagram",
     description: "Restaurant Alger",
-    image: "/images/gallery/alger.JPG", // Chemin vers public/images/gallery/...
+    image: "/images/gallery/mirror.jpg", // Chemin vers public/images/gallery/...
   },
   {
     id: 2,
     label: "Miroir TikTok",
     description: "Salon de coiffure Oran",
-    image: "/images/gallery/alger.JPG",
+    image: "/images/gallery/mirror.jpg",
   },
   {
     id: 3,
     label: "Miroir Instagram",
     description: "Boutique Sétif",
-    image: "/images/gallery/mirror.JPG",
+    image: "/images/gallery/mirror.jpg",
   },
   {
     id: 4,
