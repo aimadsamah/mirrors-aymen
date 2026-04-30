@@ -5,14 +5,10 @@ import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { wilayas, mirrorTypes } from "@/lib/data";
 
-// ✅ Correction TypeScript : On force le type string dès le départ.
-// Sur Vercel, ces variables seront lues depuis tes "Environment Variables".
-const EMAILJS_SERVICE_ID = (process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ||
-  "") as string;
-const EMAILJS_TEMPLATE_ID = (process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ||
-  "") as string;
-const EMAILJS_PUBLIC_KEY = (process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ||
-  "") as string;
+// ✅ On NE force PAS le type ici
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
 export default function OrderForm() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -43,7 +39,7 @@ export default function OrderForm() {
     setStatus("loading");
     setErrorMessage("");
 
-    // 1. Validation des champs vides
+    // 1. Validation des champs
     if (
       !formData.fullName ||
       !formData.phone ||
@@ -56,7 +52,7 @@ export default function OrderForm() {
       return;
     }
 
-    // 2. Vérification de sécurité pour les clés EmailJS
+    // 2. Validation des variables d'environnement
     if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
       console.error("Configuration EmailJS manquante");
       setStatus("error");
@@ -75,12 +71,12 @@ export default function OrderForm() {
     };
 
     try {
-      // ✅ Ici, TypeScript ne râlera plus car les variables sont garanties comme string en haut
+      // ✅ Non-null assertion ici (safe après le if)
       await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
+        EMAILJS_SERVICE_ID!,
+        EMAILJS_TEMPLATE_ID!,
         templateParams,
-        EMAILJS_PUBLIC_KEY,
+        EMAILJS_PUBLIC_KEY!,
       );
 
       setStatus("success");
