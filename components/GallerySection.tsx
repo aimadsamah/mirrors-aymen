@@ -8,37 +8,49 @@ const galleryItems = [
     id: 1,
     label: "Miroir Instagram",
     description: "Restaurant Alger",
-    image: "/images/gallery/mirror.JPG", // Chemin vers public/images/gallery/...
+    //image: "/images/gallery/mirror.JPG",
+    image:
+      "https://i.etsystatic.com/54288647/c/1086/1086/0/181/il/7660f5/7956422908/il_600x600.7956422908_c4fv.jpg",
   },
   {
     id: 2,
     label: "Miroir TikTok",
     description: "Salon de coiffure Oran",
-    image: "/images/gallery/mirror.JPG",
+    // image: "/images/gallery/mirror.JPG",
+    image:
+      "https://i.etsystatic.com/50553118/r/il/de0341/7972237751/il_600x600.7972237751_j2p9.jpg",
   },
   {
     id: 3,
     label: "Miroir Instagram",
     description: "Boutique Sétif",
-    image: "/images/gallery/mirror.JPG",
+    // image: "/images/gallery/mirror.JPG",
+    image:
+      "https://i.etsystatic.com/65416815/r/il/ef20fc/7897330888/il_600x600.7897330888_peub.jpg",
   },
   {
     id: 4,
     label: "Miroir Facebook",
     description: "Café Constantine",
-    image: "/images/gallery/mirror.JPG",
+    // image: "/images/gallery/mirror.JPG",
+    image:
+      "https://i.etsystatic.com/64387753/r/il/881cbf/7875019858/il_600x600.7875019858_eki3.jpg",
   },
   {
     id: 5,
     label: "Miroir TikTok",
     description: "Fitness Club Blida",
-    image: "/images/gallery/mirror.JPG",
+    // image: "/images/gallery/mirror.JPG",
+    image:
+      "https://i.etsystatic.com/65416815/r/il/d6b245/7940447040/il_600x600.7940447040_8jxn.jpg",
   },
   {
     id: 6,
     label: "Miroir Personnalisé",
     description: "Hôtel Annaba",
-    image: "/images/gallery/mirror.JPG",
+    // image: "/images/gallery/mirror.JPG",
+    image:
+      "https://i.etsystatic.com/65416815/r/il/fe759c/7897336548/il_1588xN.7897336548_djor.jpg",
   },
 ];
 
