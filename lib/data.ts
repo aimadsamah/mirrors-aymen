@@ -60,16 +60,36 @@ export const wilayas = [
 ];
 
 export const mirrorTypes = [
-  { id: "instagram", label: "Instagram", description: "Cadre style post Instagram", icon: "📸" },
-  { id: "tiktok", label: "TikTok", description: "Cadre style interface TikTok", icon: "🎵" },
-  { id: "facebook", label: "Facebook", description: "Cadre style post Facebook", icon: "👍" },
-  { id: "custom", label: "Personnalisé", description: "Design sur mesure", icon: "✨" },
+  {
+    id: "instagram",
+    label: "Instagram",
+    description: "Cadre style post Instagram",
+    icon: "📸",
+  },
+  {
+    id: "tiktok",
+    label: "TikTok",
+    description: "Cadre style interface TikTok",
+    icon: "🎵",
+  },
+  {
+    id: "facebook",
+    label: "Facebook",
+    description: "Cadre style post Facebook",
+    icon: "👍",
+  },
+  {
+    id: "custom",
+    label: "Personnalisé",
+    description: "Design sur mesure",
+    icon: "✨",
+  },
 ];
 
 export const socialLinks = {
-  whatsapp: "https://wa.me/213XXXXXXXXX",
-  instagram: "https://instagram.com/mirrorsbyaymen",
-  facebook: "https://facebook.com/mirrorsbyaymen",
-  tiktok: "https://tiktok.com/@mirrorsbyaymen",
-  phone: "+213 XXX XXX XXX",
+  whatsapp: "https://wa.me/213655389325",
+  instagram: "https://instagram.com/miroir_deco_by_aym",
+  facebook: "https://facebook.com/",
+  tiktok: "https://tiktok.com/",
+  phone: "+213 655 38 93 25",
 };

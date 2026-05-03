@@ -96,8 +96,8 @@ export default function ContactSection() {
             Restons en <span className="gold-text-gradient">contact</span>
           </h2>
           <p className="text-charcoal-400 max-w-2xl mx-auto text-sm sm:text-base">
-            Une question ? Une demande personnalis&eacute;e ?
-            N&apos;h&eacute;sitez pas &agrave; nous contacter.
+            Une question ? Une demande personnalisée ? N&apos;hésitez pas
+            &agrave; nous contacter.
           </p>
         </motion.div>
 
@@ -184,7 +184,7 @@ export default function ContactSection() {
               </div>
               <div className="flex justify-between items-center py-2 sm:py-3">
                 <span className="text-charcoal-400 text-xs sm:text-sm">
-                  R&eacute;ponse WhatsApp
+                  Réponse WhatsApp
                 </span>
                 <span className="text-gold-400 font-medium text-xs sm:text-sm">
                   Rapide
@@ -194,7 +194,7 @@ export default function ContactSection() {
 
             <div className="mt-6 sm:mt-8 p-3 sm:p-4 rounded-xl bg-gold-500/10 border border-gold-500/20">
               <p className="text-gold-400 text-xs sm:text-sm text-center font-medium">
-                Contactez-nous sur WhatsApp pour une r&eacute;ponse rapide !
+                Contactez-nous sur WhatsApp pour une réponse rapide !
               </p>
             </div>
           </motion.div>
