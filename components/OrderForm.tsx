@@ -157,7 +157,7 @@ export default function OrderForm() {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                placeholder="0XXX XXX XXX"
+                placeholder="0550 50 50 50"
                 className={inputClass}
               />
             </div>
