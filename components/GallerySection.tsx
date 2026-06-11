@@ -52,6 +52,22 @@ const galleryItems = [
     // image:
     //   "https://i.etsystatic.com/65416815/r/il/fe759c/7897336548/il_1588xN.7897336548_djor.jpg",
   },
+  {
+    id: 7,
+    label: "Miroir Hotel",
+    description: "Hotel Boumellit",
+    image: "/boumellit1.jpg",
+    // image:
+    //   "https://i.etsystatic.com/65416815/r/il/d6b245/7940447040/il_600x600.7940447040_8jxn.jpg",
+  },
+  {
+    id: 8,
+    label: "Miroir Hotel",
+    description: "Hotel Boumellit",
+    image: "/boumellit2.jpeg",
+    // image:
+    //   "https://i.etsystatic.com/65416815/r/il/fe759c/7897336548/il_1588xN.7897336548_djor.jpg",
+  },
 ];
 
 export default function GallerySection() {
